@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Candidature Universitaire</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<iframe
+    name="googleSheetsFrame"
+    id="googleSheetsFrame"
+    style="display:none;">
+</iframe>
+<body>
+<header><b>🎓 Admission Universitaire</b><span>🔒 Candidature en ligne</span></header>
+<main>
+  <div class="hero">
+    <small>ADMISSION 2026</small>
+    <h1>Formulaire de candidature universitaire</h1>
+    <p>Choisissez un pays pour afficher automatiquement les universités correspondantes.</p>
+  </div>
+
+  <div id="msg" class="msg"></div>
+
+  <form id="form">
+    <section>
+      <h2>01 — Informations personnelles</h2>
+      <div class="grid">
+        <label>Nom *<input name="nom" required></label>
+        <label>Prénom *<input name="prenom" required></label>
+        <label>Email *<input type="email" name="email" required></label>
+        <label>Téléphone *<input name="telephone" required></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>02 — Études souhaitées</h2>
+      <div class="grid">
+        <label>
+          Pays d'étude *
+          <select id="country" name="pays" required disabled>
+            <option>Chargement des pays...</option>
+          </select>
+          <small id="countryStatus"></small>
+        </label>
+
+        <label>
+          Université *
+          <select id="university" name="universite" required disabled>
+            <option>Choisissez d'abord un pays</option>
+          </select>
+          <small id="universityStatus"></small>
+        </label>
+
+        <label>
+          Domaine *
+          <select name="domaine" required>
+            <option value="">Sélectionner</option>
+            <option>Informatique / Génie logiciel</option>
+            <option>Génie civil</option>
+            <option>Gestion / Commerce</option>
+            <option>Médecine / Santé</option>
+            <option>Droit</option>
+            <option>Sciences</option>
+            <option>Économie</option>
+            <option>Autre</option>
+          </select>
+        </label>
+
+        <label>
+          Niveau *
+          <select name="niveau" required>
+            <option value="">Sélectionner</option>
+            <option>Licence / Bachelor</option>
+            <option>Master</option>
+            <option>Doctorat</option>
+          </select>
+        </label>
+      </div>
+    </section>
+
+    <section>
+      <h2>03 — Parcours académique</h2>
+      <div class="grid">
+        <label>Dernier diplôme *<input name="diplome" required></label>
+        <label>Année *<input type="number" name="anneeDiplome" required></label>
+        <label>Établissement précédent<input name="etablissement"></label>
+        <label>Moyenne<input name="moyenne"></label>
+      </div>
+    </section>
+
+    <section>
+      <h2>04 — Motivation</h2>
+      <label>Lettre de motivation *<textarea name="motivation" maxlength="1500" required></textarea></label>
+    </section>
+
+    <section>
+      <label class="check">
+        <input type="checkbox" name="consentement" required>
+        J'accepte l'enregistrement de ma candidature dans Google Sheets. *
+      </label>
+    </section>
+
+    <button id="submit" type="submit">Envoyer ma candidature</button>
+  </form>
+
+  <div id="success" class="success hidden">
+    <h2>✓ Candidature envoyée</h2>
+    <p>Votre référence :</p>
+    <b id="ref"></b>
+    <button type="button" onclick="location.reload()">Nouvelle candidature</button>
+  </div>
+</main>
+<footer>© 2026 Admission Universitaire</footer>
+<script src="config.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
